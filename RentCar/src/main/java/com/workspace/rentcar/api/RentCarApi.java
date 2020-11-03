@@ -38,18 +38,18 @@ public class RentCarApi {
     }
 
 
-    @PostMapping
-    public RcCar addCar() {
-
-        return rcCars.save(new RcCar(22L, "Hyundai", "C30", "Red", "sedan", 70,null ,
-                new RcEngine(40L,"RRR4567","Diesel",3.0F,455,"T","Automatic","AWD" )));
-    }
-
-
 //    @PostMapping
-//    public RcCar addCar(RcCar rcCar) {
-//        return rcCars.save(rcCar);
+//    public RcCar addCar() {
+//
+//        return rcCars.save(new RcCar("Hyundai", "C30", "Red", "sedan", 70,null ,
+//                new RcEngine("RRR4567","Diesel",3.0F,455,"T","Automatic","AWD" )));
 //    }
+
+
+    @PostMapping
+    public RcCar addCar(@RequestBody RcCar rcCar) {
+        return rcCars.save(rcCar);
+    }
 
 //    public RcEngine addEngine(@RequestBody RcEngine rcEngine) {
 //        return rcEngines.save(rcEngine);

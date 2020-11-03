@@ -7,9 +7,9 @@ import javax.persistence.*;
 public class RcEngine {
 
     @Id
-    @Column(name = "ID")
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_rcEngine")
-//    @SequenceGenerator(name = "id_rCEngine", sequenceName = "RC_ENGINE_SEQ")
+    @Column(name = "ID_RC_ENGINE")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idRcEngine")
+    @SequenceGenerator(name = "idRcEngine", sequenceName = "RC_ENGINE_SEQ1", allocationSize = 0)
     private Long id;
     @Column
     private String serialNumber;
@@ -32,6 +32,16 @@ public class RcEngine {
 
     public RcEngine(Long id, String serialNumber, String fuelType, Float capacity, Integer power, String turbine, String gearbox, String typeOfDrive) {
         this.id = id;
+        this.serialNumber = serialNumber;
+        this.fuelType = fuelType;
+        this.capacity = capacity;
+        this.power = power;
+        this.turbine = turbine;
+        this.gearbox = gearbox;
+        this.typeOfDrive = typeOfDrive;
+    }
+
+    public RcEngine(String serialNumber, String fuelType, Float capacity, Integer power, String turbine, String gearbox, String typeOfDrive) {
         this.serialNumber = serialNumber;
         this.fuelType = fuelType;
         this.capacity = capacity;

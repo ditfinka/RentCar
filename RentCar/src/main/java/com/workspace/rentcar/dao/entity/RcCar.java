@@ -7,9 +7,9 @@ import java.util.Date;
 @Table
 public class RcCar {
     @Id
-    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "id_Sequence")
-    @SequenceGenerator(name = "id_Sequence", sequenceName = "RC_CAR_SEQ")
-    @Column(name = "ID")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "id_sequence_car")
+    @SequenceGenerator(name = "id_sequence_car", sequenceName = "RC_CAR_SEQ1", allocationSize = 0)
+    @Column(name = "ID_RC_CAR")
     private Long id;
     @Column
     private String mark;
@@ -26,8 +26,8 @@ public class RcCar {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "RC_ENGINE_ID")
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_rcEngine_rcCar")
-//    @SequenceGenerator(name = "id_rcEngine_rcCar", sequenceName = "RC_CAR_RC_ENGINE_SEQ")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idRcEngineToRcCar")
+    @SequenceGenerator(name = "idRcEngineToRcCar", sequenceName = "RC_CAR_TO_RC_ENGINE_SEQ1", allocationSize = 0)
     private RcEngine rcEngine;
 
     public RcCar() {
@@ -35,6 +35,16 @@ public class RcCar {
 
     public RcCar(Long id, String mark, String model, String color, String bodyType, Integer milAge, Date productionDate, RcEngine rcEngine) {
         this.id = id;
+        this.mark = mark;
+        this.model = model;
+        this.color = color;
+        this.bodyType = bodyType;
+        this.milAge = milAge;
+        this.productionDate = productionDate;
+        this.rcEngine = rcEngine;
+    }
+
+    public RcCar(String mark, String model, String color, String bodyType, Integer milAge, Date productionDate, RcEngine rcEngine) {
         this.mark = mark;
         this.model = model;
         this.color = color;
