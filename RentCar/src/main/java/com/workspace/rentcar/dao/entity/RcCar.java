@@ -25,8 +25,8 @@ public class RcCar {
     private Date productionDate;
 
     @OneToOne
-            (cascade = CascadeType.ALL)
-//    @JoinColumn(name = "RC_ENGINE_ID")
+//            (cascade = CascadeType.MERGE)
+    @JoinColumn(name = "RC_ENGINE_ID")
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_rcEngine_rcCar")
 //    @SequenceGenerator(name = "id_rcEngine_rcCar", sequenceName = "RC_CAR_RC_ENGINE_SEQ")
     private RcEngine rcEngine;
